@@ -1,28 +1,26 @@
-// .github/format_code.yml
-
 name: Fix Code Style
 
 on:
-  pull_request:
-    branches: [dev]
+  push:
+    branches: [ "main" ]
 
 jobs:
   laravel-pint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Composer Install
-        run: composer install
+    - name: Composer Install
+      run: composer install
 
-      - name: Run Laravel Pint
-        run: ./vendor/bin/pint
+    - name: Run Laravel Pint
+      run: ./vendor/bin/pint
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply Laravel Pint changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply Laravel Pint changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
