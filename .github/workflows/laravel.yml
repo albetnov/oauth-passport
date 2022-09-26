@@ -32,5 +32,5 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: backend/database/database.sqlite
-      run: backend/vendor/bin/pest
+      run: cd backend && ./vendor/bin/pest
       
