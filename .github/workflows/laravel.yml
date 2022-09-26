@@ -27,10 +27,10 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
+        touch backend/database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via Pest
       env:
         DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: vendor/bin/pest
+        DB_DATABASE: backend/database/database.sqlite
+      run: backend/vendor/bin/pest
       

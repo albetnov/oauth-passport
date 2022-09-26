@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.prettierrc.js
+.eslintrc.js
+env.d.ts
+# I have no idea why it's red there.
+cypress/
