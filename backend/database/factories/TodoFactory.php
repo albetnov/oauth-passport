@@ -20,7 +20,7 @@ class TodoFactory extends Factory
     public function definition()
     {
         return [
-            'todo' => fake()->paragraph(3)
+            'todo' => fake()->paragraph(3),
         ];
     }
 }

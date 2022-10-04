@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
@@ -33,6 +32,7 @@ class TodoController extends Controller
         $data = $request->validated();
         try {
             $todo = Todo::create($data);
+
             return response()->json(['message' => 'success inserting todo.', 'data' => $todo], 201);
         } catch (QueryException $e) {
             return response()->json(['message' => 'error inserting todo.'], 500);
@@ -63,6 +63,7 @@ class TodoController extends Controller
 
         try {
             $todo->update($data);
+
             return  response()->json(['message' => 'success update todo', 'data' => $todo], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'failed update todo'], 500);
@@ -79,6 +80,7 @@ class TodoController extends Controller
     {
         try {
             $todo->delete();
+
             return response()->json(['message' => 'bye todo'], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'failed delete todo'], 500);
